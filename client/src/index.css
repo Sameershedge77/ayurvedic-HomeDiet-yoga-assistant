@@ -1,0 +1,39 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import "tailwindcss";
+
+/* body {
+  @apply bg-ayur-soft text-slate-900;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+} */
+/* body {
+  background-color: theme(colors.ayur.soft);
+} */
+body {
+  /* just use the hex directly instead of theme(...) */
+  background-color: #ecfdf5; /* ayur soft */
+  color: #0f172a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Nice scrollbars (optional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #a7f3d0;
+  border-radius: 999px;
+}
+
+/* Glow background helper */
+.hero-glow {
+  background: radial-gradient(
+    circle at top left,
+    rgba(190, 242, 100, 0.5),
+    transparent 55%
+  );
+}

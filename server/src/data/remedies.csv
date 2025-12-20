@@ -1,0 +1,23 @@
+﻿remedy_id,remedy_name,health_issue_internal,ingredients,region_suitable,season_suitable,preparation_time,difficulty,contraindicated_for,safe_for_pregnancy,safe_for_diabetes,notes,image_path
+1,Tulsi-Ginger Kadha,cold;cough;fever,tulsi leaves;ginger;pepper;jaggery,all_india,winter;monsoon,15,easy,acid_reflux,false ,true ,Drink warm,images/remedies/tulsi_ginger_kadha.jpg
+2,Honey-Turmeric Paste,sore_throat;cough,honey;turmeric;pepper,all_india,all_seasons,5,easy,diabetes,false ,false ,Limit honey intake,images/remedies/turmeric_honey.jpg
+3,Ginger-Lemon Tea,headache;nausea;cold,ginger;lemon;honey;water,all_india,all_seasons,10,easy,acid_reflux,false ,true ,Avoid empty stomach,images/remedies/ginger_lemon.jpg
+4,Steam Inhalation,cold;cough;sinus,water;eucalyptus oil;salt,all_india,all_seasons,15,easy,asthma,fasle,true ,Do not overheat,images/remedies/steam.jpg
+5,Triphala Churna,constipation;digestion,triphala powder;warm water,all_india,all_seasons,5,easy,pregnancy,fasle,true ,Take at night,images/remedies/triphala.jpg
+6,Ajwain Water,digestive_problems;acidity,ajwain;water;rock salt,all_india,all_seasons,10,easy,pregnancy,false ,true ,Drink lukewarm,images/remedies/ajwain_water.jpg
+7,Fennel Seeds Water,bloating;acidity,fennel seeds;water,all_india,all_seasons,20,easy,none,true ,true ,Safe daily use,images/remedies/fennel_water.jpg
+8,Giloy Juice,fever;weak_immunity,giloy stem;water,all_india,all_seasons,25,medium,autoimmune,false ,true ,Do not overdose,images/remedies/giloy_juice.jpg
+9,Ashwagandha Milk,stress;anxiety,ashwagandha powder;milk;honey,all_india,winter;monsoon,10,easy,pregnancy,fasle,true ,Take at night,images/remedies/ashwagandha.jpg
+10,Tulsi Honey Mix,cough;immunity,tulsi leaves;honey;ginger,all_india,all_seasons,5,easy,diabetes,false ,false ,Use organic honey,images/remedies/tulsi_honey.jpg
+11,Methi Seeds Water,diabetes;obesity,fenugreek seeds;water,all_india,all_seasons,480,easy,pregnancy,false ,true ,Soak overnight,images/remedies/methi_seeds.jpg
+12,Bitter Gourd Juice,diabetes,bitter gourd;water;lemon,all_india,summer,15,medium,pregnancy,false ,true ,Take empty stomach,images/remedies/karela_juice.jpg
+13,Cinnamon Water,diabetes;metabolism,cinnamon stick;water,all_india,winter,20,easy,pregnancy,false ,true ,Do not overdose,images/remedies/cinnamon_water.jpg
+14,Turmeric Milk,cough;asthma;immunity,turmeric;milk;pepper;honey,all_india,winter;monsoon,10,easy,lactose_intolerance,false ,true ,Drink before sleep,images/remedies/turmeric_milk.jpg
+15,Garlic Water,high_bp;heart_health,garlic cloves;water,all_india,all_seasons,5,easy,pregnancy,false ,true ,Use in moderation,images/remedies/garlic_remedy.jpg
+16,Amla Juice,acidity;immunity,amla;water;honey,all_india,all_seasons,10,easy,diabetes,fasle,true ,Fresh is best,images/remedies/amla_juice.jpg
+17,Green Tea Remedy,obesity;metabolism,green tea;lemon;ginger,all_india,all_seasons,5,easy,anxiety,true ,true ,Limit to 2 cups,images/remedies/green_tea.jpg
+18,Neem Water,skin_problems;blood_purification,neem leaves;water,all_india,summer,30,medium,pregnancy,false ,true ,Bitter taste,images/remedies/neem_water.jpg
+19,Kokum Drink,acidity;heat,kokum;water;salt;cumin,maharashtra;goa;karnataka,summer,30,easy,none,true ,true ,Cooling drink,images/remedies/kokum_drink.jpg
+20,Brahmi Tea,stress;anxiety;memory,brahmi leaves;water;honey,all_india,all_seasons,15,easy,pregnancy,false ,true ,Improves focus,images/remedies/brahmi_tea.jpg
+21,Warm Milk with Nutmeg,insomnia,miik;nutmeg;honey ,all_india,all_seasons,5,easy ,pregnancy,false ,true ,Use pinch of nutmeg ,images/remedies/nutmeg_milk.jpg
+22,Jatamansi Tea,anxiety;stress,jatamansi powder;water;honey,all_india,all_seasons,10,easy,pregnancy,false ,true ,Calming effect,images/remedies/jatamansi_tea.jpg

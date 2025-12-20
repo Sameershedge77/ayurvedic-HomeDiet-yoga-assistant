@@ -1,0 +1,26 @@
+﻿asana_id,asana_name,pose_type,weight_bearing,primary_joints,secondary_joints,difficulty_level,recommended_for,contraindicated_for,benefits,duration_minutes,best_time,precautions,image_path
+1,Bhujangasana,prone,false ,spine,shoulder,beginner,back_pain;spine_health,severe_back_injury,Strengthens spine and posture,5,morning,Avoid deep bend,images/asanas/bhujangasana.jpg
+2,Balasana,sitting,false ,spine,hip,beginner,back_pain;stress;knee_pain,none,Relieves back tension and stress,3,evening,Use cushion,images/asanas/balasana.jpg
+3,Marjariasana,prone,false ,spine,neck,beginner,back_pain;stiffness,pregnancy,Improves spinal flexibility,5,morning,Move gently,images/asanas/marjariasana.jpg
+4,Setu_Bandhasana,supine,false ,spine,hip,intermediate,back_pain;posture,neck_injury,Strengthens lower back,4,morning;evening,Support neck,images/asanas/setu_bandha.jpg
+5,Matsyasana,supine,false ,neck,spine,intermediate,neck_pain;thyroid,severe_neck_injury,Opens chest and throat,3,morning,Do not strain neck,images/asanas/matsyasana.jpg
+6,Tadasana,standing,true ,ankle;knee;spine,hip,beginner,posture;alignment,ankle_pain;knee_pain,Improves posture and balance,2,anytime,Avoid if ankle pain,images/asanas/tadasana.jpg
+7,Sukhasana,sitting,false ,hip,spine,beginner,stress;meditation,none,Calms mind and posture,10,anytime,Use cushion,images/asanas/sukhasana.jpg
+8,Trikonasana,standing,true ,hip;knee;ankle,spine,intermediate,hip_flexibility,joint_pain;ankle_pain,Improves flexibility,4,morning,Avoid ankle pain,images/asanas/trikonasana.jpg
+9,Vrikshasana,standing,true ,ankle;knee;hip,spine,beginner,balance,joint_pain;ankle_pain,Improves balance,3,morning,Use support,images/asanas/vrikshasana.jpg
+10,Uttanasana,standing,true ,hamstring;knee,spine,beginner,hamstring_stretch,knee_pain,Relieves tension,3,morning;evening,Bend knees if needed,images/asanas/uttanasana.jpg
+11,Anulom_Vilom,breathing,false ,lungs,nose,beginner,asthma;stress,none,Improves breathing,10,anytime,Slow breathing,images/asanas/anulom_vilom.jpg
+12,Surya_Namaskar,standing,true ,full_body,none,intermediate,obesity;fitness,ankle_pain;knee_pain,Boosts metabolism,15,morning,Avoid joint pain,images/asanas/surya_namaskar.jpg
+13,Shavasana,supine,false ,none,none,beginner,stress;bp,none,Deep relaxation,10,anytime,None,images/asanas/shavasana.jpg
+14,Paschimottanasana,sitting,false ,spine;hip,hamstring,intermediate,diabetes;digestion,severe_back_pain,Improves digestion,5,morning,Do not overstretch,images/asanas/paschimottanasana.jpg
+15,Vajrasana,sitting,false ,knee;ankle,hip,beginner,digestion,knee_pain;ankle_pain,Aids digestion,15,after_meals,Avoid knee pain,images/asanas/vajrasana.jpg
+16,Ustrasana,standing,true ,spine;knee,neck,advanced,energy,back_pain;knee_pain,Opens chest,3,morning,Only advanced users,images/asanas/ustrasana.jpg
+17,Dhanurasana,prone,false ,spine,hip,intermediate,diabetes;back_pain,hernia;ulcer,Strengthens spine,4,morning,Avoid pressure,images/asanas/dhanurasana.jpg
+18,Pawanmuktasana,supine,false ,hip;abdomen,none,beginner,gas;bloating,none,Relieves gas,5,anytime,Gentle movement,images/asanas/pawanmuktasana.jpg
+19,Kapalbhati,breathing,false ,abdomen,none,beginner,obesity;diabetes,heart_problem;pregnancy,Boosts metabolism,10,morning,Avoid force,images/asanas/kapalbhati.jpg
+20,Bhastrika,breathing,false ,lungs,none,intermediate,asthma;immunity,high_bp,Improves lung capacity,8,morning,Avoid if BP,images/asanas/bhastrika.jpg
+21,Supta_Padangusthasana,supine,false ,hip,hamstring,beginner,ankle_pain;leg_stiffness,severe_back_pain,Safe leg stretch,4,anytime,Use strap,images/asanas/supta_padangusthasana.jpg
+22,Ardha_Matsyendrasana,sitting,false ,spine,hip,intermediate,spine_flexibility,severe_back_pain,Improves spinal twist,4,morning,Do gently,images/asanas/ardha_matsyendrasana.jpg
+23,Gomukhasana,sitting,false ,shoulder;hip,spine,intermediate,shoulder_stiffness,knee_pain,Improves joint mobility,5,morning,Use support,images/asanas/gomukhasana.jpg
+24,Malasana,squatting,true ,ankle;knee;hip,spine,advanced,digestion,knee_pain;ankle_pain,Improves digestion,4,morning,Avoid joint pain,images/asanas/malasana.jpg
+25,Supta_Baddha_Konasana,supine,false ,hip,none,beginner,stress;menstrual_pain,none,Deep relaxation,6,evening,Use bolsters,images/asanas/supta_baddha_konasana.jpg

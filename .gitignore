@@ -1,0 +1,19 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Env
+.env
+
+# Python / ML
+__pycache__/
+*.pkl
+*.h5
+*.joblib
+
+# Build
+dist/
+build/
+
+# OS
+.DS_Store
