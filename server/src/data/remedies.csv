@@ -1,8 +1,8 @@
 ﻿remedy_id,remedy_name,health_issue_internal,ingredients,region_suitable,season_suitable,preparation_time,difficulty,contraindicated_for,safe_for_pregnancy,safe_for_diabetes,notes,image_path
 1,Tulsi-Ginger Kadha,cold;cough;fever,tulsi leaves;ginger;pepper;jaggery,all_india,winter;monsoon,15,easy,acid_reflux,false ,true ,Drink warm,images/remedies/tulsi_ginger_kadha.jpg
 2,Honey-Turmeric Paste,sore_throat;cough,honey;turmeric;pepper,all_india,all_seasons,5,easy,diabetes,false ,false ,Limit honey intake,images/remedies/turmeric_honey.jpg
-3,Ginger-Lemon Tea,headache;nausea;cold,ginger;lemon;honey;water,all_india,all_seasons,10,easy,acid_reflux,false ,true ,Avoid empty stomach,images/remedies/ginger_lemon.jpg
-4,Steam Inhalation,cold;cough;sinus,water;eucalyptus oil;salt,all_india,all_seasons,15,easy,asthma,fasle,true ,Do not overheat,images/remedies/steam.jpg
+3,Ginger-Lemon,headache;nausea;cold,ginger;lemon;honey;water,all_india,all_seasons,10,easy,acid_reflux,false ,true ,Avoid empty stomach,images/remedies/ginger_lemon.jpg
+4,Steam ,cold;cough;sinus,water;eucalyptus oil;salt,all_india,all_seasons,15,easy,asthma,fasle,true ,Do not overheat,images/remedies/steam.jpg
 5,Triphala Churna,constipation;digestion,triphala powder;warm water,all_india,all_seasons,5,easy,pregnancy,fasle,true ,Take at night,images/remedies/triphala.jpg
 6,Ajwain Water,digestive_problems;acidity,ajwain;water;rock salt,all_india,all_seasons,10,easy,pregnancy,false ,true ,Drink lukewarm,images/remedies/ajwain_water.jpg
 7,Fennel Seeds Water,bloating;acidity,fennel seeds;water,all_india,all_seasons,20,easy,none,true ,true ,Safe daily use,images/remedies/fennel_water.jpg

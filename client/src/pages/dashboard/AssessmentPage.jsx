@@ -6,6 +6,8 @@ import { getUser } from "../../hooks/useAuth";
 import axios from "axios";
 
 const steps = ["Profile", "Lifestyle", "Issue", "Preferences"];
+// const [lifestyle, setLifestyle] = useState("");
+// const [severity, setSeverity] = useState("");
 
 export default function AssessmentPage() {
   const user = getUser();
@@ -67,11 +69,18 @@ export default function AssessmentPage() {
       if (form.mainConcern === "cold") healthIssues.push("cold");
       if (form.mainConcern === "digestion") healthIssues.push("digestive_problems");
 
-      const res = await axios.post(
-        "http://localhost:5000/api/recommendations",
-        { healthIssues }
-      );
+     const lifestyle = form.lifestyle; // ✅ FIX
+     const severity = form.stressLevel; // optional mapping
 
+    const res = await axios.post(
+      "http://localhost:5000/api/recommendations",
+      {
+        userId: user.id,
+        healthIssues,
+        lifestyle,
+        severity
+      }
+    );
       setRecommendations(res.data.recommendations);
       setDone(true);
     } catch (err) {

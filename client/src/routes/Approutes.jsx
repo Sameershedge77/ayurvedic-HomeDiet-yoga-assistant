@@ -12,6 +12,9 @@ import ProtectedRoute from "../components/auth/ProtectedRoute.jsx";
 import RoleRoute from "../components/auth/RoleRoute.jsx";
 import AssessmentPage from "../pages/dashboard/AssessmentPage.jsx";
 import AppointmentsPage from "../pages/AppointmentsPage.jsx";
+import RecommendationHistory from "../pages/RecommendationHistory.jsx";
+import PaymentPage from "../pages/PaymentPage";
+
 
 function AppRoutes() {
   return (
@@ -21,6 +24,9 @@ function AppRoutes() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/appointments" element={<AppointmentsPage />} />
+      <Route path="/recommendation-history" element={<RecommendationHistory />} />
+      <Route path="/payment" element={<PaymentPage />} />
+
 
       {/* User dashboard */}
       <Route

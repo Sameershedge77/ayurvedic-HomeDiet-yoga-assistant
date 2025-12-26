@@ -1,12 +1,19 @@
 import express from "express";
-import { getLatestRecommendation } from "../controllers/dashboardController.js";
+import {
+  getLatestRecommendation,
+  getRecommendationHistory
+} from "../controllers/dashboardController.js";
 
 const router = express.Router();
 
-// GET /api/dashboard/latest-recommendation/:userId
 router.get(
   "/latest-recommendation/:userId",
   getLatestRecommendation
+);
+
+router.get(
+  "/recommendation-history/:userId",
+  getRecommendationHistory
 );
 
 export default router;

@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import recommendationRoutes from "./routes/recommendationRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import doctorRoutes from "./routes/doctorRoutes.js";
+import appointmentRoutes from "./routes/appointmentRoutes.js";
+
 dotenv.config();
 
 const app = express();
@@ -14,6 +17,8 @@ app.use("/api", recommendationRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/images", express.static("images"));
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api", doctorRoutes);
+app.use("/api", appointmentRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`🚀 Server running on port ${process.env.PORT}`);

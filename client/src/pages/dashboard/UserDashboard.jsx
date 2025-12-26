@@ -100,10 +100,10 @@ const UserDashboard = () => {
                 <strong>Health Issues:</strong> {recommendations.healthIssues}
               </p>
               <p className="text-sm text-slate-700">
-                <strong>Lifestyle:</strong> {recommendations.lifestyle}
+                <strong>Lifestyle:</strong>{" "} {recommendations.lifestyle || "Not specified"}
               </p>
               <p className="text-sm text-slate-700">
-                <strong>Severity:</strong> {recommendations.severity}
+                <strong>Severity:</strong>{" "} {recommendations.severity || "Not specified"}
               </p>
             </div>
 
@@ -125,9 +125,20 @@ const UserDashboard = () => {
                   <h4 className="font-semibold text-slate-900">
                     {yoga.name}
                   </h4>
-                  <p className="text-sm text-slate-600">
-                    {yoga.description}
+                  <p className="text-xs text-slate-500 mt-1">
+                    {yoga.benefits}
                   </p>
+
+                  {yoga.video && (
+                    <a
+                      href={yoga.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-emerald-600 mt-2 inline-block hover:underline"
+                    >
+                      ▶ Watch guided video
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
@@ -150,9 +161,26 @@ const UserDashboard = () => {
                   <h4 className="font-semibold text-slate-900">
                     {remedy.name}
                   </h4>
-                  <p className="text-sm text-slate-600">
-                    {remedy.usage}
+                  <p className="text-xs text-slate-500 mt-1">
+                    {remedy.usage || "Use as per Ayurvedic guidance"}
                   </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Ingredients: {remedy.ingredients}
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    Prep time: {remedy.preparation_time}
+                  </p>
+                  {remedy.video && (
+                    <a
+                      href={remedy.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-emerald-600 mt-2 inline-block hover:underline"
+                    >
+                      ▶ Watch preparation video
+                    </a>
+                  )}
+
                 </div>
               ))}
             </div>
@@ -160,7 +188,7 @@ const UserDashboard = () => {
             {/* CTA */}
             <div className="mt-8 text-center">
               <button
-                onClick={() => navigate("/recommendation")}
+                onClick={() => navigate("/recommendation-history")}
                 className="px-6 py-2 rounded-full bg-emerald-600 text-white hover:bg-emerald-700"
               >
                 View Full Recommendation

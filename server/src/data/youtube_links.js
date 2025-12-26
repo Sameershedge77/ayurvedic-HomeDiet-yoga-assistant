@@ -7,8 +7,8 @@ export const YOUTUBE_LINKS = {
 
   bhujangasana: "https://youtu.be/luTSRGXPEMs",
   balasana: "https://youtu.be/2MJGg-dUKh0",
-  marjaryasana_bitilasana: "https://youtu.be/Ov65nNSWrfw",
-  setu_bandhasana: "https://youtu.be/g78vfuC4QBI",
+  marjariasana: "https://youtu.be/Ov65nNSWrfw",
+  setu_bandha: "https://youtu.be/g78vfuC4QBI",
   matsyasana: "https://youtu.be/MEgYDfwMV_w",
   tadasana: "https://youtu.be/CTrRX7DcBSA",
   sukhasana: "https://youtu.be/ri9B8IzLXIY",
@@ -36,7 +36,7 @@ export const YOUTUBE_LINKS = {
   /* ===================== */
 
   tulsi_ginger_kadha: "https://youtube.com/shorts/7WnEZyRFlK8?si=4874ls27t1rDryRa",
-  honey_turmeric_paste: "https://youtube.com/shorts/2NQgGq-avf0?si=9OmZu96M3WhyCUvV",
+  turmeric_honey: "https://youtube.com/shorts/2NQgGq-avf0?si=9OmZu96M3WhyCUvV",
   ginger_lemon: "https://youtube.com/shorts/UJzkdo4spd0?si=ViOME2xJ9aI_I7UC",
   ajwain_water: "https://youtube.com/shorts/SRG69qwzPT4?si=OAMONK8azUGpXCWE",
   triphala: "https://youtube.com/shorts/QoYMQJv_Y7U?si=Afpq21tFdJ-3mGSL",
@@ -45,7 +45,7 @@ export const YOUTUBE_LINKS = {
   ashwagandha: "https://youtube.com/shorts/n7ih57stldQ?si=ueZT7z7oHotuv7nh",
   tulsi_honey: "https://youtube.com/shorts/hWqAI_ln3fw?si=zHCdNZbcAjxeljXf",
   methi_seeds: "https://youtube.com/shorts/yXKy3jvee7g?si=dF54QG6m0b0FcqZj",
-  bitter_gourd_juice: "https://youtube.com/shorts/QMKDdwQC2jw?si=C3mgsnD76-hdkygh",
+  karela_juice: "https://youtube.com/shorts/QMKDdwQC2jw?si=C3mgsnD76-hdkygh",
   cinnamon_water: "https://youtube.com/shorts/aH7DOmn6xkA?si=SoPkSjEMB6t6UlRf",
   turmeric_milk: "https://youtube.com/shorts/Ih8ps6Ti_K0?si=GSblIS0725Ux6hxv",
   steam: "https://www.youtube.com/watch?v=steam_inhalation_demo",
@@ -53,7 +53,7 @@ export const YOUTUBE_LINKS = {
   amla_juice: "https://youtube.com/shorts/4oEK_GpQBIM?si=iaMY1P0QH54gqAc-",
   fenugreek_water: "https://youtu.be/6UlLQKNsgqs",
   green_tea: "https://youtube.com/shorts/f3OlcaqpGHo?si=2o88hRV8LgUf9Jer",
-  neem_paste: "https://youtu.be/epiB0j6iwn8",
+  neem_water: "https://youtu.be/epiB0j6iwn8",
   kokum_drink: "https://youtube.com/shorts/NiE_1VSHIsY?si=GLYtx1ZQITLsmkCw",
   brahmi_tea: "https://youtube.com/shorts/TPvJAbJg668?si=Ub-vOb42qBl1wMUw",
   nutmeg_milk: "https://youtube.com/shorts/3CWojk-p_Jw?si=_7312Yg9EmXM6Xf3",
