@@ -62,3 +62,24 @@ export const confirmAppointment = async (req, res) => {
     res.status(500).json({ success: false });
   }
 };
+
+export const getDoctorStats = async (req, res) => {
+  try {
+    const doctorId = req.params.doctorId;
+
+    const [rows] = await db.promise().query(
+      `SELECT 
+        SUM(status = 'pending') AS pending,
+        SUM(status = 'confirmed') AS confirmed,
+        COUNT(*) AS total
+       FROM appointments
+       WHERE doctor_id = ?`,
+      [doctorId]
+    );
+
+    res.json({ success: true, data: rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false });
+  }
+};

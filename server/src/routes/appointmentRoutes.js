@@ -1,8 +1,13 @@
 import express from "express";
-import { createAppointment } from "../controllers/appointmentController.js";
+import {
+  createAppointment,
+  rescheduleAppointment,
+} from "../controllers/appointmentController.js";
 
 const router = express.Router();
 
 router.post("/appointments", createAppointment);
+router.put("/appointments/:id/reschedule", rescheduleAppointment);
 
 export default router;
+

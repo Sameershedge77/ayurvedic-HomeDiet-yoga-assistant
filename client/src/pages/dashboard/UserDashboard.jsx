@@ -14,6 +14,9 @@ const UserDashboard = () => {
 
   const [recommendations, setRecommendations] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [appointments, setAppointments] = useState([]);
+  const [latestAppointment, setLatestAppointment] = useState(null);
+
 
   // appointment section ref
   const apptRef = useRef(null);
@@ -48,6 +51,29 @@ const UserDashboard = () => {
     }
   }, [user]);
 
+  /* fetch latest appointment */
+  /* fetch latest appointment */
+useEffect(() => {
+  const fetchLatestAppointment = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/api/users/${user?.id}/appointments`
+      );
+
+      if (res.data.success && res.data.data) {
+        setLatestAppointment(res.data.data);
+      }
+    } catch (err) {
+      console.log("No appointments found");
+    }
+  };
+
+  if (user?.id) {
+    fetchLatestAppointment();
+  }
+}, [user]);
+
+
   return (
     <div className="min-h-screen bg-ayur-gradient relative overflow-hidden">
       <div className="hero-glow pointer-events-none absolute inset-0 opacity-60" />
@@ -65,23 +91,63 @@ const UserDashboard = () => {
         </div>
 
         {/* Start Assessment */}
-        <motion.div
-          whileHover={{ y: -4 }}
-          className="rounded-3xl bg-white/80 border border-emerald-50 p-6 shadow-soft-card mb-10"
-        >
-          <h2 className="text-lg font-semibold text-slate-900">
-            Health Assessment
-          </h2>
-          <p className="text-sm text-slate-600 mb-3">
-            Answer a few questions to get personalised diet, yoga and remedies.
-          </p>
-          <button
-            onClick={() => navigate("/assessment")}
-            className="px-4 py-2 rounded-full bg-emerald-600 text-white text-sm hover:bg-emerald-700"
-          >
-            Start Assessment
-          </button>
-        </motion.div>
+        
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            {/* Health Assessment */}
+            <div className="bg-white/80 rounded-3xl p-6 shadow-soft-card">
+              <h2 className="text-lg font-semibold mb-1">
+                Health Assessment
+              </h2>
+              <p className="text-sm text-slate-600 mb-4">
+                Answer a few questions to get personalised diet, yoga and remedies.
+              </p>
+
+              <button
+                onClick={() => navigate("/assessment")}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-full"
+              >
+                Start Assessment
+              </button>
+            </div>
+
+            {/* Appointment Status */}
+            {/* Appointment Status (only if booked) */}
+            {latestAppointment && (
+                <div className="bg-white/80 rounded-3xl p-6 shadow-soft-card flex flex-col justify-between">
+                  <div>
+                    <h2 className="text-lg font-semibold mb-1">
+                      Appointment Status
+                    </h2>
+
+                    <p className="text-sm text-slate-700 font-medium">
+                      {latestAppointment.problem}
+                    </p>
+
+                    <p className="text-sm text-slate-600 mt-1">
+                      {latestAppointment.appointment_date} •{" "}
+                      {latestAppointment.appointment_time}
+                    </p>
+
+                    <span
+                      className={`inline-block mt-3 px-3 py-1 text-xs rounded-full w-fit
+                        ${latestAppointment.status === "pending" && "bg-yellow-100 text-yellow-700"}
+                        ${latestAppointment.status === "confirmed" && "bg-green-100 text-green-700"}
+                        ${latestAppointment.status === "rescheduled" && "bg-blue-100 text-blue-700"}
+                      `}
+                    >
+                      {latestAppointment.status.toUpperCase()}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-500 mt-4">
+                    You’ll be notified by email if the doctor updates this appointment.
+                  </p>
+                </div>
+              )}
+
+          </div>
+
+       
 
         {/* Latest Recommendation */}
         {!loading && recommendations && (

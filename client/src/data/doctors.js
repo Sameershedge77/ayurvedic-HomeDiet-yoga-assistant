@@ -1,6 +1,6 @@
 export const doctors = [
   {
-    id: 5,
+    id: 1,
     name: "Dr. Rajesh Kumar",
     specialty: "Ayurvedic Medicine & Panchakarma",
     experience: "15+ years",
@@ -22,7 +22,7 @@ export const doctors = [
     image: "/doctors/priya.jpg"
   },
   {
-    id: 5,
+    id: 3,
     name: "Dr. Arun Patel",
     specialty: "Traditional Ayurveda & Herbs",
     experience: "20+ years",

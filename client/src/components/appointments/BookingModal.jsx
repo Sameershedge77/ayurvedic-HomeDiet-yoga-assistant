@@ -42,6 +42,7 @@ export default function BookingModal({ doctor, onClose }) {
   const [form, setForm] = useState({
     name: user?.name || "",
     email: user?.email || "",
+    phone: "",
     problem: healthIssues.length > 0 ? healthIssues[0] : "",
     severity: doctor?.severity || "Moderate",
     date: "",
@@ -132,6 +133,16 @@ const handleSubmit = (e) => {
             value={form.email}
             disabled
             className="w-full border rounded-xl px-4 py-2 bg-gray-100 text-gray-600"
+          />
+          {/* Phone */}
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone number"
+            value={form.phone}
+            onChange={handleChange}
+            required
+            className="w-full border rounded-xl px-4 py-2"
           />
 
           {/* ✅ Problem type (NOW WORKING) */}

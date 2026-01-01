@@ -16,6 +16,10 @@ export default function PaymentPage() {
   }
   // console.log("Doctor object:", doctor);
   // console.log("Doctor ID:", doctor?.id);
+  // console.log("BOOKING OBJECT:", booking);
+  // console.log("PHONE:", booking.phone);
+  // console.log("DOCTOR:", doctor);
+  // console.log("DOCTOR ID:", doctor?.id);
 
   const { doctor, booking, amount } = state;
   const handlePaymentConfirmation = async () => {
@@ -25,12 +29,14 @@ export default function PaymentPage() {
       doctorId: doctor.id,
       patientName: booking.name,
       patientEmail: booking.email,
+      patientPhone: booking.phone,
       problem: booking.problem,
       severity: booking.severity,
       notes: booking.notes,
       date: booking.date,
       time: booking.time,
       amount: amount,
+      status: "pending",
     });
 
     setPaid(true);
