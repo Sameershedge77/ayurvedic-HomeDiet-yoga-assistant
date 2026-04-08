@@ -8,6 +8,7 @@ export const YOUTUBE_LINKS = {
   bhujangasana: "https://youtu.be/luTSRGXPEMs",
   balasana: "https://youtu.be/2MJGg-dUKh0",
   marjariasana: "https://youtu.be/Ov65nNSWrfw",
+  marjaryasana: "https://youtu.be/Ov65nNSWrfw", // Alias
   setu_bandha: "https://youtu.be/g78vfuC4QBI",
   matsyasana: "https://youtu.be/MEgYDfwMV_w",
   tadasana: "https://youtu.be/CTrRX7DcBSA",
@@ -18,6 +19,7 @@ export const YOUTUBE_LINKS = {
   anulom_vilom: "https://youtu.be/Nhw92icsQ1A",
   surya_namaskar: "https://youtu.be/QFhgghL3vGM",
   shavasana: "https://youtu.be/nF4WqMRbfdI",
+  savasana: "https://youtu.be/nF4WqMRbfdI", // Alias
   paschimottanasana: "https://youtu.be/E5FtZEVC424",
   vajrasana: "https://youtu.be/lDHE0Tvoyyo",
   ustrasana: "https://youtu.be/4G8SggLKMbE",
@@ -48,7 +50,7 @@ export const YOUTUBE_LINKS = {
   karela_juice: "https://youtube.com/shorts/QMKDdwQC2jw?si=C3mgsnD76-hdkygh",
   cinnamon_water: "https://youtube.com/shorts/aH7DOmn6xkA?si=SoPkSjEMB6t6UlRf",
   turmeric_milk: "https://youtube.com/shorts/Ih8ps6Ti_K0?si=GSblIS0725Ux6hxv",
-  steam: "https://www.youtube.com/watch?v=steam_inhalation_demo",
+  steam: "https://youtu.be/hEAnwAnGNoM",
   garlic_remedy: "https://youtube.com/shorts/lrqXWdcHnlY?si=6COVX3xlpobpxsVb",
   amla_juice: "https://youtube.com/shorts/4oEK_GpQBIM?si=iaMY1P0QH54gqAc-",
   fenugreek_water: "https://youtu.be/6UlLQKNsgqs",

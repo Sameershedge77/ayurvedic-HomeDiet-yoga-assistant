@@ -1,16 +1,43 @@
-import { doctors } from "../data/doctors";
 import BookingModal from "../components/appointments/BookingModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import api from "../services/api";
 
 export default function AppointmentsPage() {
+  const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
   const prefillData = location.state || {};
   const { healthIssues, severity } = prefillData;
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        setLoading(true);
+        const res = await api.get("/public/doctors");
+        if (res.data?.success) {
+          setDoctors(res.data.data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch doctors:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDoctors();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex text-emerald-800 items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100">
+        Loading specialists...
+      </div>
+    );
+  }
 
   return (
     <motion.div

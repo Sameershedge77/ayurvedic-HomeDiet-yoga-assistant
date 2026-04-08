@@ -13,8 +13,8 @@ export const getUserAppointments = async (req, res) => {
          status
        FROM appointments
        WHERE user_id = ?
-       ORDER BY created_at DESC
-       LIMIT 1`,
+       ORDER BY appointment_date DESC, created_at DESC
+       LIMIT 10`,
       [userId]
     );
 

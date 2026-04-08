@@ -1,7 +1,8 @@
 import express from "express";
 import {
   getDoctorAppointments,
-  confirmAppointment
+  confirmAppointment,
+  getAllDoctorsWithAvailability
 } from "../controllers/doctorController.js";
 
 const router = express.Router();
@@ -11,5 +12,8 @@ router.get("/doctors/:doctorId/appointments", getDoctorAppointments);
 
 // Confirm appointment
 router.put("/appointments/:appointmentId/confirm", confirmAppointment);
+
+// Live availability
+router.get("/public/doctors", getAllDoctorsWithAvailability);
 
 export default router;

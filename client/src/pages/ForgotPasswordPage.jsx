@@ -24,35 +24,35 @@ const ForgotPasswordPage = () => {
     try {
       // TODO: later connect to backend:
       // await axios.post("/api/auth/forgot-password", { email });
-    //   
-        const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus({ type: "", message: "" });
+      //   
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus({ type: "", message: "" });
 
-  if (!email.trim()) {
-    setStatus({ type: "error", message: "Please enter your email address." });
-    return;
-  }
+        if (!email.trim()) {
+          setStatus({ type: "error", message: "Please enter your email address." });
+          return;
+        }
 
-  setLoading(true);
+        setLoading(true);
 
-  try {
-    const res = await api.post("/auth/forgot-password", { email });
-    setStatus({
-      type: "success",
-      message:
-        res.data?.message ||
-        "If this email is registered, a password reset link will be sent shortly.",
-    });
-  } catch (err) {
-    setStatus({
-      type: "error",
-      message: "Something went wrong. Please try again after some time.",
-    });
-  } finally {
-    setLoading(false);
-  }
-};
+        try {
+          const res = await api.post("/auth/forgot-password", { email });
+          setStatus({
+            type: "success",
+            message:
+              res.data?.message ||
+              "If this email is registered, a password reset link will be sent shortly.",
+          });
+        } catch (err) {
+          setStatus({
+            type: "error",
+            message: "Something went wrong. Please try again after some time.",
+          });
+        } finally {
+          setLoading(false);
+        }
+      };
 
 
       setStatus({
@@ -98,7 +98,7 @@ const ForgotPasswordPage = () => {
             transition={{ delay: 0.15, duration: 0.5 }}
             className="text-sm text-slate-600 mb-6"
           >
-            Enter the email address you used to create your AyurLifestyle
+            Enter the email address you used to create your AyurHealth
             account. We&apos;ll send you a secure link to reset your password.
           </motion.p>
 
@@ -125,11 +125,10 @@ const ForgotPasswordPage = () => {
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`text-xs rounded-xl px-3 py-2 ${
-                  status.type === "success"
+                className={`text-xs rounded-xl px-3 py-2 ${status.type === "success"
                     ? "bg-emerald-50 text-emerald-800 border border-emerald-100"
                     : "bg-red-50 text-red-700 border border-red-100"
-                }`}
+                  }`}
               >
                 {status.message}
               </motion.div>
@@ -139,9 +138,9 @@ const ForgotPasswordPage = () => {
               whileHover={
                 !loading
                   ? {
-                      scale: 1.03,
-                      boxShadow: "0 18px 35px rgba(16,185,129,0.4)",
-                    }
+                    scale: 1.03,
+                    boxShadow: "0 18px 35px rgba(16,185,129,0.4)",
+                  }
                   : {}
               }
               whileTap={!loading ? { scale: 0.97 } : {}}

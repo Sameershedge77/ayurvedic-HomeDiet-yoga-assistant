@@ -4,7 +4,15 @@ import User from "../models/user.js";
 
 export const register = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role, inviteCode } = req.body;
+
+    // Verify doctor invite code if role is doctor
+    if (role === 'doctor') {
+      const validCode = process.env.DOCTOR_INVITE_CODE || "AYURVEDA2026";
+      if (!inviteCode || inviteCode !== validCode) {
+        return res.status(400).json({ message: "Invalid Doctor Invite Code." });
+      }
+    }
 
     const existing = await User.findByEmail(email);
     if (existing) return res.status(400).json({ message: "Email already exists" });

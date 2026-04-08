@@ -12,8 +12,10 @@ import ProtectedRoute from "../components/auth/ProtectedRoute.jsx";
 import RoleRoute from "../components/auth/RoleRoute.jsx";
 import AssessmentPage from "../pages/dashboard/AssessmentPage.jsx";
 import AppointmentsPage from "../pages/AppointmentsPage.jsx";
+import RateDoctorPage from "../pages/RateDoctorPage.jsx";
 import RecommendationHistory from "../pages/RecommendationHistory.jsx";
 import PaymentPage from "../pages/PaymentPage";
+import WellnessLab from "../pages/WellnessLab.jsx";
 
 
 function AppRoutes() {
@@ -26,6 +28,7 @@ function AppRoutes() {
       <Route path="/appointments" element={<AppointmentsPage />} />
       <Route path="/recommendation-history" element={<RecommendationHistory />} />
       <Route path="/payment" element={<PaymentPage />} />
+      <Route path="/rate-doctor/:appointmentId" element={<RateDoctorPage />} />
 
 
       {/* User dashboard */}
@@ -41,6 +44,13 @@ function AppRoutes() {
         element={<ProtectedRoute>
           <RoleRoute allowed={["user"]}>
             <AssessmentPage />
+          </RoleRoute>
+        </ProtectedRoute>} />
+      <Route
+        path="/wellness-lab"
+        element={<ProtectedRoute>
+          <RoleRoute allowed={["user"]}>
+            <WellnessLab />
           </RoleRoute>
         </ProtectedRoute>} />
 
@@ -63,7 +73,7 @@ function AppRoutes() {
             <UserDashboard />
           </RoleRoute>
         </ProtectedRoute>} />
-    </Routes>
+    </Routes >
   );
 }
 

@@ -71,17 +71,16 @@ const LoginPage = () => {
               Welcome back <span className="inline-block">🌿</span>
             </h1>
             <p className="text-sm text-slate-600 mb-4">
-              Log in to continue your AyurLifestyle journey and pick up your
+              Log in to continue your AyurHealth journey and pick up your
               last routine where you left off.
             </p>
 
             {status.message && (
               <div
-                className={`mb-3 text-xs rounded-xl px-3 py-2 ${
-                  status.type === "success"
+                className={`mb-3 text-xs rounded-xl px-3 py-2 ${status.type === "success"
                     ? "bg-emerald-50 text-emerald-800 border border-emerald-100"
                     : "bg-red-50 text-red-700 border border-red-100"
-                }`}
+                  }`}
               >
                 {status.message}
               </div>
@@ -138,9 +137,9 @@ const LoginPage = () => {
                 whileHover={
                   !loading
                     ? {
-                        scale: 1.03,
-                        boxShadow: "0 18px 35px rgba(16,185,129,0.4)",
-                      }
+                      scale: 1.03,
+                      boxShadow: "0 18px 35px rgba(16,185,129,0.4)",
+                    }
                     : {}
                 }
                 whileTap={!loading ? { scale: 0.97 } : {}}
@@ -153,7 +152,7 @@ const LoginPage = () => {
             </form>
 
             <p className="mt-4 text-xs text-slate-600">
-              New to AyurLifestyle?{" "}
+              New to AyurHealth?{" "}
               <Link
                 to="/register"
                 className="text-emerald-700 font-medium hover:text-emerald-600"
