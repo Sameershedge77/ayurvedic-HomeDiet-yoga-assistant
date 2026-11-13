@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "../pages/LandingPage.jsx";
 import LoginPage from "../pages/LoginPage.jsx";
-import RegisterPage from "../pages/Registerpage.jsx";
+import RegisterPage from "../pages/RegisterPage.jsx";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx";
 
 import UserDashboard from "../pages/dashboard/UserDashboard.jsx";
