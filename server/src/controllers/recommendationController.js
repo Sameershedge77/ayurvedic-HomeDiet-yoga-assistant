@@ -2,7 +2,6 @@ import db from "../config/db.js";
 import { analyzeHealthProfile } from "../services/aiService.js";
 import { YOUTUBE_LINKS } from "../data/youtube_links.js";
 import { getRetrievalContext, normalizeKey, generateRecommendations } from "../services/recommendationService.js";
-import { loadCSV } from "../utils/csvLoader.js";
 
 export const getRecommendations = async (req, res) => {
   try {
@@ -99,10 +98,26 @@ export const getRecommendations = async (req, res) => {
       };
     } catch (aiError) {
       console.error("AI Service Error:", aiError.message);
-      return res.status(503).json({
-        success: false,
-        message: "Recommendation services are temporarily busy. Please try again."
-      });
+      try {
+        finalResponse = await generateRecommendations({
+          ...req.body,
+          mode: "static"
+        });
+
+        if (!finalResponse) {
+          throw new Error("Curated recommendation data returned no result.");
+        }
+
+        source = finalResponse.source || "STATIC_MAPPING";
+        console.warn("Using curated recommendations because AI providers are unavailable.");
+      } catch (fallbackError) {
+        console.error("Curated recommendation fallback failed:", fallbackError.message);
+        console.timeEnd("RecommendationTime");
+        return res.status(503).json({
+          success: false,
+          message: "AI recommendations are unavailable and the curated fallback failed. Please try again later."
+        });
+      }
     }
 
     // 3️⃣ SAVE recommendation to DB

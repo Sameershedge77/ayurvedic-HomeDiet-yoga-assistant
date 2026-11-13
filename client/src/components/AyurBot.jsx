@@ -96,6 +96,22 @@ const AyurBot = () => {
         setInput("");
         setLoading(true);
 
+        let botMsg = { role: "model", text: "" };
+        let botMessageStarted = false;
+        const updateBotMessage = () => {
+            if (!botMessageStarted) {
+                botMessageStarted = true;
+                setMessages(prev => [...prev, { ...botMsg }]);
+                return;
+            }
+
+            setMessages(prev => {
+                const newMsgs = [...prev];
+                newMsgs[newMsgs.length - 1] = { ...botMsg };
+                return newMsgs;
+            });
+        };
+
         try {
             const history = messages.slice(1).map(m => ({
                 role: m.role,
@@ -117,39 +133,52 @@ const AyurBot = () => {
 
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
-            let botMsg = { role: "model", text: "" };
 
-            // Add initial empty bot message
-            setMessages(prev => [...prev, botMsg]);
-            setLoading(false); // Stop loader once streaming starts
+            const processLine = (line) => {
+                if (!line.startsWith("data: ")) return false;
 
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
+                const dataStr = line.slice(6).trim();
+                if (dataStr === "[DONE]") return true;
 
-                const chunk = decoder.decode(value, { stream: true });
-                const lines = chunk.split("\n");
-
-                for (const line of lines) {
-                    if (line.startsWith("data: ")) {
-                        const dataStr = line.replace("data: ", "").trim();
-                        if (dataStr === "[DONE]") break;
-
-                        try {
-                            const data = JSON.parse(dataStr);
-                            if (data.chunk) {
-                                botMsg.text += data.chunk;
-                                setMessages(prev => {
-                                    const newMsgs = [...prev];
-                                    newMsgs[newMsgs.length - 1] = { ...botMsg };
-                                    return newMsgs;
-                                });
-                            }
-                        } catch (e) {
-                            console.error("Error parsing stream chunk", e);
-                        }
-                    }
+                const data = JSON.parse(dataStr);
+                if (data.error) {
+                    botMsg.text = data.error;
+                    updateBotMessage();
+                } else if (data.chunk) {
+                    botMsg.text += data.chunk;
+                    updateBotMessage();
                 }
+
+                return false;
+            };
+
+            let pending = "";
+            let streamFinished = false;
+
+            while (!streamFinished) {
+                const { done, value } = await reader.read();
+                pending += decoder.decode(value || new Uint8Array(), { stream: !done });
+
+                let newlineIndex = pending.indexOf("\n");
+                while (newlineIndex !== -1) {
+                    const line = pending.slice(0, newlineIndex).replace(/\r$/, "");
+                    pending = pending.slice(newlineIndex + 1);
+                    if (processLine(line)) {
+                        streamFinished = true;
+                        break;
+                    }
+                    newlineIndex = pending.indexOf("\n");
+                }
+
+                if (done) {
+                    if (pending.trim()) processLine(pending.replace(/\r$/, ""));
+                    break;
+                }
+            }
+
+            if (!botMessageStarted) {
+                botMsg.text = "AyurBot returned an empty response. Please try again.";
+                updateBotMessage();
             }
 
             // Handle Payment Tag: [PAYMENT_REQUIRED:id:amount]
@@ -159,15 +188,14 @@ const AyurBot = () => {
                 const amount = paymentMatch[2];
                 botMsg.text = botMsg.text.replace(/\[PAYMENT_REQUIRED:(\d+):(\d+)\]/, "").trim();
                 botMsg.paymentInfo = { appointmentId, amount };
-                setMessages(prev => {
-                    const newMsgs = [...prev];
-                    newMsgs[newMsgs.length - 1] = { ...botMsg };
-                    return newMsgs;
-                });
+                updateBotMessage();
             }
 
         } catch (error) {
-            setMessages(prev => [...prev, { role: "model", text: "I'm having trouble connecting right now. Please try again." }]);
+            console.error("AyurBot request failed:", error);
+            botMsg.text = "I'm having trouble connecting right now. Please try again.";
+            updateBotMessage();
+        } finally {
             setLoading(false);
         }
     };
