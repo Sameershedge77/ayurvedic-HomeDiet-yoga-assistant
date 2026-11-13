@@ -4,6 +4,14 @@ npm-debug.log
 
 # Env
 .env
+.env.*
+!.env.example
+
+# Local database exports and unsafe debugging scripts
+database/ayurvedausers_full_dump.sql
+server/db_check.js
+server/test_*.js
+server/test_*.cjs
 
 # Python / ML
 __pycache__/

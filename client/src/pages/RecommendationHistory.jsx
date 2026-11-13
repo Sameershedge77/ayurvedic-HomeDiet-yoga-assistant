@@ -1,8 +1,8 @@
 // client/src/pages/RecommendationHistory.jsx
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Navbar from "../components/layout/Navbar";
 import { getUser } from "../hooks/useAuth";
+import api from "../services/api";
 
 const RecommendationHistory = () => {
   const user = getUser();
@@ -12,8 +12,8 @@ const RecommendationHistory = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/dashboard/recommendation-history/${user.id}`
+        const res = await api.get(
+          `/dashboard/recommendation-history/${user.id}`
         );
 
         if (res.data.success) {

@@ -135,7 +135,8 @@ export const sendRatingEmail = async (to, patientName, doctorName, appointmentId
     return;
   }
   try {
-    const ratingUrl = `http://localhost:5173/rate-doctor/${appointmentId}`;
+    const clientUrl = (process.env.CLIENT_URL || "http://localhost:5173").replace(/\/+$/, "");
+    const ratingUrl = `${clientUrl}/rate-doctor/${appointmentId}`;
     await transporter.sendMail({
       from: `"AyurHealth" <${process.env.EMAIL_USER}>`,
       to,

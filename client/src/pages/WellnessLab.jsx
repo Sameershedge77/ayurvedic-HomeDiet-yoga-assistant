@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { getUser } from "../hooks/useAuth";
-import axios from "axios";
+import api from "../services/api";
 
 const WellnessLab = () => {
     const user = getUser();
@@ -28,7 +28,7 @@ const WellnessLab = () => {
     useEffect(() => {
         const fetchScore = async () => {
             try {
-                const res = await axios.post("http://localhost:5000/api/agents/wellness-score", { userId: user?.id });
+                const res = await api.post("/agents/wellness-score", { userId: user?.id });
                 if (res.data.success) {
                     setWellnessScore(res.data.score);
                 }
@@ -49,7 +49,7 @@ const WellnessLab = () => {
     const generateMealPlan = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:5000/api/agents/nutritionist", { userId: user?.id });
+            const res = await api.post("/agents/nutritionist", { userId: user?.id });
             if (res.data.success) {
                 setNutritionPlan(res.data.data);
             }
@@ -63,7 +63,7 @@ const WellnessLab = () => {
     const buildYogaSequence = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:5000/api/agents/yoga-sequencer", { userId: user?.id });
+            const res = await api.post("/agents/yoga-sequencer", { userId: user?.id });
             if (res.data.success) {
                 setYogaSequence(res.data.data.sequence);
             }
@@ -130,7 +130,7 @@ const WellnessLab = () => {
             setLoading(true);
 
             try {
-                const res = await axios.post("http://localhost:5000/api/chat", {
+                const res = await api.post("/chat", {
                     message: transcript,
                     userId: user?.id,
                     history: []

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageSquare, X, Send, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
 import GlassCard from "./ui/GlassCard";
 import ReactMarkdown from "react-markdown";
+import api, { API_BASE_URL } from "../services/api";
 
 const AyurBot = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +42,7 @@ const AyurBot = () => {
     // Fetch history on mount
     useEffect(() => {
         if (user.id) {
-            axios.get(`http://localhost:5000/api/chat/history/${user.id}`)
+            api.get(`/chat/history/${user.id}`)
                 .then(res => {
                     if (res.data.success && res.data.history.length > 0) {
                         setMessages([
@@ -60,14 +60,14 @@ const AyurBot = () => {
     const handlePay = async (appointmentId, amount) => {
         setLoading(true);
         try {
-            const orderRes = await axios.post("http://localhost:5000/api/payments/create-order", {
+            const orderRes = await api.post("/payments/create-order", {
                 amount,
                 appointmentId
             });
 
             if (orderRes.data.success) {
                 alert(`Proceeding to pay ₹${amount} for Appointment #${appointmentId}`);
-                const verifyRes = await axios.post("http://localhost:5000/api/payments/verify", {
+                const verifyRes = await api.post("/payments/verify", {
                     appointmentId,
                     paymentId: "pay_" + Math.random().toString(36).substring(2, 10),
                     orderId: orderRes.data.orderId
@@ -103,7 +103,7 @@ const AyurBot = () => {
             }));
 
             // Use fetch for streaming
-            const response = await fetch("http://localhost:5000/api/chat/stream", {
+            const response = await fetch(`${API_BASE_URL}/chat/stream`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

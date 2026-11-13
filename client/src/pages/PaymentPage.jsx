@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import PaymentSuccess from "../components/payment/PaymentSuccess";
 import { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 export default function PaymentPage() {
   const { state } = useLocation();
@@ -24,7 +24,7 @@ export default function PaymentPage() {
   const { doctor, booking, amount } = state;
   const handlePaymentConfirmation = async () => {
   try {
-    await axios.post("http://localhost:5000/api/appointments", {
+    await api.post("/appointments", {
       userId: booking.userId || booking.id, // adjust if needed
       doctorId: doctor.id,
       patientName: booking.name,
@@ -175,7 +175,6 @@ export default function PaymentPage() {
 
 // const handlePaymentConfirmation = async () => {
 //   try {
-//     await axios.post("http://localhost:5000/api/appointments", {
 //       userId: booking.userId || booking.id, // adjust if needed
 //       doctorId: doctor.id,
 //       patientName: booking.name,

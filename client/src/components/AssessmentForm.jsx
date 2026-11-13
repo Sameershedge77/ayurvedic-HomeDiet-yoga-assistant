@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import GlassCard from "./ui/GlassCard";
 import { Check, ChevronRight, ChevronLeft, Loader2, Sparkles, UserCircle } from "lucide-react";
 import { getUser } from "../hooks/useAuth";
+import api from "../services/api";
 import PrakritiQuiz from "./assessment/PrakritiQuiz";
 import DoshaReveal from "./assessment/DoshaReveal";
 import VikritiAssessment from "./assessment/VikritiAssessment";
@@ -143,7 +143,7 @@ const AssessmentForm = ({ onComplete }) => {
                 mala: "Identified via detailed symptoms"
             };
 
-            const res = await axios.post("http://localhost:5000/api/recommendations", payload);
+            const res = await api.post("/recommendations", payload);
 
             if (onComplete) {
                 onComplete(res.data.recommendations);

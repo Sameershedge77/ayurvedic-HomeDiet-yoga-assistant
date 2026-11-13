@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import axios from "axios";
+import api from "../../services/api";
 
 export default function RescheduleModal({ appointment, onClose, onSuccess }) {
   const [date, setDate] = useState("");
@@ -16,10 +16,7 @@ export default function RescheduleModal({ appointment, onClose, onSuccess }) {
     try {
       setLoading(true);
 
-      await axios.put(
-        `http://localhost:5000/api/appointments/${appointment.id}/reschedule`,
-        { date, time }
-      );
+      await api.put(`/appointments/${appointment.id}/reschedule`, { date, time });
 
       onSuccess(); // refresh dashboard
       onClose();

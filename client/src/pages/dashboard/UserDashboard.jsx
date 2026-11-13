@@ -4,7 +4,7 @@ import Navbar from "../../components/layout/Navbar";
 import { getUser } from "../../hooks/useAuth";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import api from "../../services/api";
 import AppointmentPreview from "../../components/appointments/AppointmentPreview";
 import StepModal from "../../components/common/StepModal";
 import TrustSignals from "../../components/ui/TrustSignals";
@@ -36,8 +36,8 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchLatestRecommendation = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/dashboard/latest-recommendation/${user?.id}`
+        const res = await api.get(
+          `/dashboard/latest-recommendation/${user?.id}`
         );
         if (res.data.success) {
           setRecommendations(res.data.data);
@@ -57,9 +57,7 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchLatestAppointment = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/users/${user?.id}/appointments`
-        );
+        const res = await api.get(`/users/${user?.id}/appointments`);
         if (res.data.success && res.data.data) {
           const appts = Array.isArray(res.data.data) ? res.data.data : [res.data.data];
           setAppointments(appts);

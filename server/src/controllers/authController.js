@@ -57,7 +57,8 @@ export const forgotPassword = async (req, res) => {
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "15m" });
 
-    const resetLink = `http://localhost:5173/reset-password/${token}`;
+    const clientUrl = (process.env.CLIENT_URL || "http://localhost:5173").replace(/\/+$/, "");
+    const resetLink = `${clientUrl}/reset-password/${token}`;
 
     // Send email (we configure Gmail later)
     res.json({ message: "Reset link sent.", resetLink });

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "../../components/layout/Navbar";
 import { getUser } from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../services/api";
 import RescheduleModal from "../../components/appointments/RescheduleModal";
 
 const DoctorDashboard = () => {
@@ -32,9 +32,7 @@ const DoctorDashboard = () => {
 
 
   const fetchAppointments = async () => {
-    const res = await axios.get(
-      `http://localhost:5000/api/doctors/${doctorId}/appointments`
-    );
+    const res = await api.get(`/doctors/${doctorId}/appointments`);
     setAppointments(res.data.data || []);
   };
 
@@ -43,15 +41,13 @@ const DoctorDashboard = () => {
   }, [doctorId]);
 
   const confirmAppointment = async (id) => {
-    await axios.put(
-      `http://localhost:5000/api/appointments/${id}/confirm`
-    );
+    await api.put(`/appointments/${id}/confirm`);
     fetchAppointments();
   };
 
   const completeAppointment = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/appointments/${id}/complete`);
+      await api.put(`/appointments/${id}/complete`);
       fetchAppointments();
       setSuccessMessage("Appointment marked as completed! Patient has been emailed a rating link.");
       setTimeout(() => setSuccessMessage(""), 5000); // Clear after 5 seconds
@@ -67,9 +63,7 @@ const DoctorDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/dashboard/doctor/${user.id}/stats`
-        );
+        const res = await api.get(`/dashboard/doctor/${user.id}/stats`);
         if (res.data.success) {
           setStats(res.data.data);
         }
@@ -86,8 +80,8 @@ const DoctorDashboard = () => {
     setSearchLoading(true);
     setHasSearched(true);
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/dashboard/recommendation-history/undefined?email=${searchEmail}`
+      const res = await api.get(
+        `/dashboard/recommendation-history/undefined?email=${searchEmail}`
       );
       if (res.data.success) {
         setPatientHistory(res.data.data || []);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 import Navbar from "../components/layout/Navbar";
 
 const RateDoctorPage = () => {
@@ -25,7 +25,7 @@ const RateDoctorPage = () => {
         setIsSubmitting(true);
         setError(null);
         try {
-            const res = await axios.post(`http://localhost:5000/api/appointments/${appointmentId}/rate`, {
+            const res = await api.post(`/appointments/${appointmentId}/rate`, {
                 rating,
                 review,
             });
